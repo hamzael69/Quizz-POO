@@ -1,53 +1,47 @@
 <?php
 
-
-class Question
+final class Question
 {
+    private string $title;
+    private string $explainationAnswer;
     private array $answers;
-    private string $titledQuestion;
 
-    // C'est le construct qui permets de créer l'objet Question en mettant directement le parametre titled  
-    /** Mettre en parametre l'intitulé de la question */
-    public function __construct(string $titledQuestion)
+    public function __construct(string $title)
     {
-        $this->answers = [];
-        $this->titledQuestion = $titledQuestion;
+        $this->title = $title;
     }
 
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
 
-    // Permets d'afficher la variable $answers de partout
+    public function getExplainationAnswer(): string
+    {
+        return $this->explainationAnswer;
+    }
+
+    public function setExplainationAnswer(string $explainationAnswer): self
+    {
+        $this->explainationAnswer = $explainationAnswer;
+        return $this;
+    }
+
     public function getAnswers(): array
     {
         return $this->answers;
     }
 
 
-
-    // La fonction setAnswers permets de modifier la variable $answers dans tout les documents et permets de vérifier que la valeur qu'on ajoute est bien un objet Answer
     public function setAnswers(array $answers): self
     {
         foreach ($answers as $answer) {
             if (!$answer instanceof Answer) {
-                throw new Exception("Il faut que le tableau soit composé de reponses uniquement");
+                throw new Exception('Il doit y avoir que des réponses dans le tableau de questions');
             }
         }
 
         $this->answers = $answers;
-
         return $this;
     }
-
-
-
-
-
-    // Sert a rien pour l'instant
-
-
-    // public function addAnswer(Answer $answer): self
-    // {
-    //     $this->answers[] = $answer;
-    //     return $this;
-    // }
-
 }

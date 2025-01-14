@@ -1,44 +1,35 @@
 <?php
 
-class Qcm
+final class Qcm
 {
-    private array $questions;
-    private string $theme;
 
-    // Fonction construct pour créer l'objet Qcm avec un parametre a l'interieur 
-    /** Mettre en parametre le theme du quizz */
-    public function __construct(string $theme)
+    private string $name;
+    private array $questions;
+
+    public function __construct(string $name)
     {
-        $this->theme = $theme;
-        $this->questions = [];
+        $this->name = $name;
     }
 
-    // Fonction qui permets d'afficher la variable $questions de partout
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
     public function getQuestions(): array
     {
         return $this->questions;
     }
 
-
-    // Fonction qui permets de modifier la variable $question pour s'en servir après
     public function setQuestions(array $questions): self
     {
         foreach ($questions as $question) {
             if (!$question instanceof Question) {
-                throw new Exception("Il faut que le tableau soit composé de questions uniquement");
+                throw new Exception('Il doit y avoir que des questions dans le tableau');
             }
         }
 
         $this->questions = $questions;
-
-        return $this;
-    }
-
-
-    // Fonction qui permets d'ajouter une question au quizz
-    public function addQuestion(Question $question): self
-    {
-        $this->questions[] = $question;
         return $this;
     }
 }

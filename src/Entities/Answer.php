@@ -1,25 +1,18 @@
 <?php
 
-class Answer
+final class Answer
 {
-    private bool $isTrue;
-    private string $allAnswers;
+    private string $title;
+    private bool $isCorrect;
 
-
-    public function __construct(bool $isTrue, string $allAnswers)
+    public function __construct(string $title, bool $isCorrect = false)
     {
-
-        $this->isTrue = $isTrue;
-        $this->allAnswers = $allAnswers;
-    }
-    public function getAllAnswers(): string
-    {
-        return $this->allAnswers;
+        $this->title = $title;
+        $this->isCorrect = $isCorrect;
     }
 
-    public function setAllAnswers(string $allAnswers): self
+    public function getTitle(): string
     {
-        $this->allAnswers = $allAnswers;
-        return $this;
+        return $this->title;
     }
 }
