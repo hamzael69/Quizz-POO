@@ -1,21 +1,29 @@
 <?php
 
 
-class Question {
-    private array $answers ;
-    private string $tiltledQuestion;
+class Question
+{
+    private array $answers;
+    private string $titledQuestion;
 
-    public function __construct(string $tiltledQuestion)
+    // C'est le construct qui permets de créer l'objet Question en mettant directement le parametre titled  
+    /** Mettre en parametre l'intitulé de la question */
+    public function __construct(string $titledQuestion)
     {
-        $this->answers = [] ;
-        $this->tiltledQuestion = $tiltledQuestion ;
+        $this->answers = [];
+        $this->titledQuestion = $titledQuestion;
     }
 
+
+    // Permets d'afficher la variable $answers de partout
     public function getAnswers(): array
     {
         return $this->answers;
     }
 
+
+
+    // La fonction setAnswers permets de modifier la variable $answers dans tout les documents et permets de vérifier que la valeur qu'on ajoute est bien un objet Answer
     public function setAnswers(array $answers): self
     {
         foreach ($answers as $answer) {
@@ -29,13 +37,17 @@ class Question {
         return $this;
     }
 
-    public function addAnswer(Answer $answer): self
-    {
-        $this->answers[] = $answer;
-        return $this;
-    }
+
+
+
+
+    // Sert a rien pour l'instant
+
+
+    // public function addAnswer(Answer $answer): self
+    // {
+    //     $this->answers[] = $answer;
+    //     return $this;
+    // }
 
 }
-
-
-
