@@ -16,11 +16,21 @@ final class Qcm
         return $this->name;
     }
 
+
+    /**
+     * Cette fonction permet de récupérer les questions d'un quiz
+     * @return array
+     */
     public function getQuestions(): array
     {
         return $this->questions;
     }
 
+    /**
+     * Permets d'associer un tableau de question à un quiz
+     * @param array $questions
+     * @return Qcm
+     */
     public function setQuestions(array $questions): self
     {
         foreach ($questions as $question) {
