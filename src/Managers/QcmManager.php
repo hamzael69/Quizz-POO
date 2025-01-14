@@ -11,7 +11,7 @@ final class QcmManager
 ?>
         <section>
             <form action="" method="post">
-                <h1><?= $qcm->getName() ?></h1>
+                <h1><?= $qcm->getThemeName() ?></h1>
 
                 <?php
                 /**

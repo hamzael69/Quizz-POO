@@ -2,18 +2,19 @@
 
 final class Qcm
 {
-
-    private string $name;
+    private int $id;
+    private string $themeName;
     private array $questions;
 
-    public function __construct(string $name)
+    public function __construct(string $themeName, int $id)
     {
-        $this->name = $name;
+        $this->themeName = $themeName;
+        $this->id = $id;
     }
 
-    public function getName(): string
+    public function getThemeName(): string
     {
-        return $this->name;
+        return $this->themeName;
     }
 
 

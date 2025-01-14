@@ -1,8 +1,9 @@
 <?php
 include_once '../utils/autoloader.php';
+require_once '../utils/db.php';
 
 // On crée une instance qcm vide
-$qcm = new Qcm("Renaud");
+$qcm = new Qcm("Renaud", 1);
 
 
 // On crée une instance Question vide
