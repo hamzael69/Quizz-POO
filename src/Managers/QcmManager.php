@@ -4,13 +4,43 @@
 
 final class QcmManager
 {
+
+    private $qcmRepository;
+    private $questionRepository;
+    private $answerRepository;
+
+    public function __construct(){
+        $this->qcmRepository = new QcmRepository();
+        $this->questionRepository = new QuestionRepository();
+        $this->answerRepository = new AnswerRepository();
+    }
+
+    public function getQcmWithQuestionAndAnswers(int $themeId){
+
+        $qcm = $this->qcmRepository->find($themeId);
+
+        $questions = $this->questionRepository->find($themeId);
+
+        foreach ($questions as $question){
+            $answers = $this->answerRepository->find($question->getId());
+            foreach($answers as $answer){$question->setAnswers($answers);
+            }
+            $qcm->setQuestions($questions);
+        }
+
+        return $qcm;
+
+
+    }
+
+
     public function generateDisplay(Qcm $qcm): string
     {
         ob_start()
 
 ?>
         <section>
-            <form action="" method="post">
+            <form action="../Managers/QcmManager.php" method="post">
                 <h1><?= $qcm->getThemeName() ?></h1>
 
                 <?php

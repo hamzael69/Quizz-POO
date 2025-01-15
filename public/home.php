@@ -44,7 +44,9 @@ require_once '../utils/db.php';
 // // var_dump($qcm->getQuestions()[0]);
 
 
-// $manager = new QcmManager();
+$manager = new QcmManager();
+
+$qcm = $manager->getQcmWithQuestionAndAnswers(2);
 
 ?>
 

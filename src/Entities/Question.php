@@ -48,4 +48,8 @@ final class Question
         $this->answers = $answers;
         return $this;
     }
+
+    public function getId(): int{
+        return $this->id;
+    }
 }

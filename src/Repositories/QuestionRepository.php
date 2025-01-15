@@ -17,11 +17,11 @@ final class QuestionRepository extends AbstractRepository
         }
         return $question;
     }
-    public function find(int $idTheme): array
+    public function find(int $themeId): array
     {
         $query = "SELECT * FROM question WHERE idTheme = :idTheme";
         $stmt = $this->pdo->prepare($query);
-        $stmt->execute(['idTheme' => $idTheme]);
+        $stmt->execute(['idTheme' => $themeId]);
         $questionDatas = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($questionDatas as $questionData) {
             $question[] = QuestionMapper::mapToObject($questionData);

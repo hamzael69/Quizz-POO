@@ -20,4 +20,5 @@ final class Answer
     {
         return $this->textReponse;
     }
+   
 }
