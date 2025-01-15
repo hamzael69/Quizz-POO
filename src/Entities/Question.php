@@ -1,14 +1,18 @@
 <?php
 
 final class Question
-{
+{   
+    private int $id;
+    private int $idTheme;
     private string $title;
     private string $explainationAnswer;
     private array $answers;
 
-    public function __construct(string $title)
-    {
+    public function __construct(int $id, string $title,int $idTheme)
+    {   
+        $this->id = $id;
         $this->title = $title;
+        $this->idTheme = $idTheme;
     }
 
     public function getTitle(): string
