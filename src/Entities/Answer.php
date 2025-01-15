@@ -20,5 +20,10 @@ final class Answer
     {
         return $this->textReponse;
     }
-   
+     public function getIsCorrect() {
+        return $this->isCorrect;
+    }
+    public function getId() {
+        return $this->id;
+    }
 }

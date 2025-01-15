@@ -1,52 +1,16 @@
 <?php
+
 include_once '../utils/autoloader.php';
 require_once '../utils/db.php';
 
-// On crée une instance qcm vide
-// $qcm = new Qcm("Renaud", 1);
+$sql = "SELECT * FROM `user`";
+try {
+    $stmt = $pdo->query($sql);
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC); // ou fetch si vous savez que vous n'allez avoir qu'un seul résultat
 
-
-// // On crée une instance Question vide
-// $question1 = new Question("Combien de litres de Ricard par jour? ");
-
-// // On crée le tableau des réponses possible de la question 1
-// $answers1 = [
-//     new Answer('1', true),
-//     new Answer('2')
-// ];
-
-// // On associe le tableau de réponses à la question correspondante
-// $question1->setAnswers($answers1);
-// $question1->setExplainationAnswer('La réponse correcte est "1 Litre de Ricard".');
-
-// // On crée une deuxieme instance de Question vide
-// $question2 = new Question ("Qu'est qui s'est explosé dans ses fenêtres  ?");
-
-// // On crée le tableau des réponses possible à la question 2
-// $answers2 = [
-//     new Answer('Un 747', true),
-//     new Answer('Un oiseau')
-// ];
-
-// // On associe le tableau de réponses à la question correspondante
-// $question2->setAnswers($answers2);
-// $question2->setExplainationAnswer('"Un 747 s\'est explosé dans mes fenêtres"');
-
-// // On crée le tableau des questions possible au quiz
-// $questions = [
-//     $question1,
-//     $question2,
-// ];
-
-// // On associe le tableau de questions au quiz correspondant
-// $qcm->setQuestions($questions);
-
-// // var_dump($qcm->getQuestions()[0]);
-
-
-$manager = new QcmManager();
-
-$qcm = $manager->getQcmWithQuestionAndAnswers(2);
+} catch (PDOException $error) {
+    echo "Erreur lors de la requete : " . $error->getMessage();
+}
 
 ?>
 
@@ -56,13 +20,27 @@ $qcm = $manager->getQcmWithQuestionAndAnswers(2);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Le Squizzie</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header></header>
-    <main>
 
-        <?= $manager->generateDisplay($qcm)?>
-    </main>
+    <header>
+        <h1 id="index-h1">Le Squizzie</h1>
+    </header>
+<main>
+    <div id="bouttonPseudo">
+<form action="../process/process-pseudo.php" method="post" id="pseudo">
+        <label for="pseudo"></label>
+        <input type="text" name="pseudo" placeholder="Entrez votre pseudo" id= "pseudo2">
+        <input type="submit" value="Suivant" class="bouton_submit">
+</form>
+    </div>
+</main>
+
+
 </body>
 </html>
