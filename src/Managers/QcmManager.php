@@ -30,7 +30,7 @@ final class QcmManager
 
                             <div>
                                 <input type="radio" name="question<?= $index ?>">
-                                <p><?= $answer->getTitle() ?></p>
+                                <p><?= $answer->getTextReponse() ?></p>
                             </div>
 
                         <?php endforeach ?>

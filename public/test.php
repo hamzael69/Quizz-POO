@@ -1,13 +1,16 @@
 <?php
 include_once '../utils/autoloader.php';
 
-$data = [
-    'id' => 1 , 
-    'themeName' => "Renaud"
-];
 
 
-$qcmMapper = new QcmMapper() ;
 
-$qcm = $qcmMapper->mapToObject($data) ;
-var_dump($qcm);
+
+// $qcmMapper = new QcmMapper() ;
+$answerRepository = new AnswerRepository();
+$answers = $answerRepository->find(2);
+// $answerMapper = new AnswerMapper();
+
+
+// $qcm = $qcmMapper->mapToObject($data) ;
+// var_dump($qcm);
+var_dump($answers);
