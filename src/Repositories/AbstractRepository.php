@@ -1,7 +1,7 @@
 <?php
 
 
-abstract class AbstractRepository 
+abstract class AbstractRepository
 {
     protected PDO $pdo;
 

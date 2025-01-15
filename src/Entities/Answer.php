@@ -2,17 +2,22 @@
 
 final class Answer
 {
-    private string $title;
+    private int $id;
+    private int $idQuestion;
+    private string $textReponse;
     private bool $isCorrect;
 
-    public function __construct(string $title, bool $isCorrect = false)
+    public function __construct(int $id ,int $idQuestion, string $textReponse, bool $isCorrect = false)
     {
-        $this->title = $title;
+
+        $this->id = $id;
+        $this->idQuestion = $idQuestion;
+        $this->textReponse = $textReponse;
         $this->isCorrect = $isCorrect;
     }
 
-    public function getTitle(): string
+    public function getTextReponse(): string
     {
-        return $this->title;
+        return $this->textReponse;
     }
 }

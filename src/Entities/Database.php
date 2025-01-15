@@ -12,11 +12,13 @@ final class Database
                 $dbname = "la_quizzine";
                 $login = "root";
                 $password = "";
+
                 self::$pdo = new PDO("mysql:host={$host};dbname={$dbname}" , $login, $password);
             } catch (PDOException $error) {
                 echo "Erreur de connexion : " . $error->getMessage();
             }
         }
+
         return self::$pdo;
     }
 }
