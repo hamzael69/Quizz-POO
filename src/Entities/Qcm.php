@@ -6,10 +6,10 @@ final class Qcm
     private string $themeName;
     private array $questions;
 
-    public function __construct(string $themeName, int $id)
+    public function __construct(int  $id, string $themeName)
     {
-        $this->themeName = $themeName;
         $this->id = $id;
+        $this->themeName = $themeName;
     }
 
     public function getThemeName(): string
